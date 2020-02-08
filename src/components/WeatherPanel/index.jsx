@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from "react";
-import WeatherDetail from "../WeatherDetail";
+import config from "../../config";
+import CountdownTimer from "../CountdownTimer";
+import WeatherDetail, { TempUnitToggle } from "../WeatherDetail";
 import WeatherHistory from "../WeatherHistory";
 import WeatherSearch, { getWeatherData } from "../WeatherSearch";
-import CountdownTimer from "../CountdownTimer";
-import config from "../../config";
 
 const WeatherPanel = () => {
   const [weatherData, reduceWeatherData] = useReducer(
@@ -24,6 +24,9 @@ const WeatherPanel = () => {
 
   const [activeCity, setActiveCity] = useState(0);
 
+  const [activeTempUnit, setActiveTempUnit] = useState(0);
+  const toggleActiveTempUnit = () => setActiveTempUnit(Number(!activeTempUnit));
+
   return (
     <div className="wp">
       <header className="wp__header">
@@ -35,8 +38,17 @@ const WeatherPanel = () => {
         </section>
         <section className="wp__detail">
           {weatherData.length > 0 && (
-            <WeatherDetail weatherData={weatherData[activeCity]} />
+            <WeatherDetail
+              weatherData={weatherData[activeCity]}
+              activeTempUnit={activeTempUnit}
+            />
           )}
+        </section>
+        <section className="wp__toggle">
+          <TempUnitToggle
+            onClick={toggleActiveTempUnit}
+            activeTempUnit={activeTempUnit}
+          />
         </section>
         <section className="wp__timer">
           <CountdownTimer

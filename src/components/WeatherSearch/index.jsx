@@ -9,6 +9,7 @@ import debugData from "../../data/weather.json";
  */
 export const getWeatherData = async ({ paramName, term }) => {
   try {
+    return debugData;
     const url = new URL(config.openweather.url);
     url.searchParams.append("appid", config.openweather.apiKey);
     url.searchParams.append(paramName, term);
