@@ -1,16 +1,11 @@
 import React from "react";
-import ExampleComp from './components/Example'; // TODO: Replace this with your application code
-import "./App.css";
+import WeatherPanel from "./components/WeatherPanel";
+// import "./App.css";
 
-const App = () => {
-
-  return ( // TODO: Replace this with your application code
-    <div className="App">
-      <header className="App-header">
-        <ExampleComp />
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <WeatherPanel />
+  </div>
+);
 
 export default App;
