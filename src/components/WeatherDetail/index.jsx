@@ -33,9 +33,9 @@ const TempUnitToggle = ({ onClick, activeTempUnit }) => {
   return (
     <div className="wd__temp-unit-info">
       <div>Showing temps in {tempUnitSymbol}</div>
-      <a className="wd__temp-unit-toggle" onClick={onClick}>
+      <span className="wd__temp-unit-toggle" onClick={onClick}>
         Show in {otherTempUnitSymbol}
-      </a>
+      </span>
     </div>
   );
 };
