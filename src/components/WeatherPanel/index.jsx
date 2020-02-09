@@ -7,11 +7,15 @@ import WeatherSearch, { getWeatherData } from "../WeatherSearch";
 import "./WeatherPanel.css";
 
 const WeatherPanel = () => {
-  const [weatherData, reduceWeatherData] = useReducer(
-    (history, latest) =>
-      Array.isArray(latest) ? latest : [latest, ...history.slice(0, 5)],
-    []
-  );
+  const [activeCity, setActiveCity] = useState(0);
+
+  const [activeTempUnit, setActiveTempUnit] = useState(0);
+  const toggleActiveTempUnit = () => setActiveTempUnit(Number(!activeTempUnit));
+
+  const [weatherData, reduceWeatherData] = useReducer((history, latest) => {
+    setActiveCity(0);
+    return Array.isArray(latest) ? latest : [latest, ...history.slice(0, 5)];
+  }, []);
 
   const updateWeatherData = async () => {
     const newWeatherData = Promise.all(
@@ -22,11 +26,6 @@ const WeatherPanel = () => {
 
     reduceWeatherData(await newWeatherData);
   };
-
-  const [activeCity, setActiveCity] = useState(0);
-
-  const [activeTempUnit, setActiveTempUnit] = useState(0);
-  const toggleActiveTempUnit = () => setActiveTempUnit(Number(!activeTempUnit));
 
   return (
     <>
