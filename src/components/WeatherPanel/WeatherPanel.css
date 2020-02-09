@@ -1,0 +1,38 @@
+.wp {
+  display: flex;
+  max-width: 50vw;
+  min-width: 40vw;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  color: #ebebeb;
+  text-align: center;
+  flex-direction: column;
+}
+
+header {
+  margin: 0;
+  padding: 5px;
+}
+
+main {
+  background-color: #3d2b3d;
+  padding: 20px 40px 0;
+}
+
+aside.wp__sidebar {
+  position: relative;
+  right: 0;
+  min-width: 10vw;
+  max-width: 20vw;
+  max-height: 160px;
+  margin-top: 90px;
+  background-color: red;
+}
+
+footer {
+  display: flex;
+  background-color: #3d2b3d;
+  padding: 20px 40px 50px;
+  flex-direction: row;
+  justify-content: space-between;
+}

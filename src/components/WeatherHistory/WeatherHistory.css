@@ -1,0 +1,15 @@
+.wh {
+  background-color: #782f79;
+}
+
+.wh__city {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #ebebeb;
+  text-decoration: underline;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}

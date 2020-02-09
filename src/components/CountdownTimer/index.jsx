@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./CountdownTimer.css";
 
 const CountdownTimer = ({
   duration,
@@ -32,11 +33,7 @@ const CountdownTimer = ({
     }
   }, [timer, onFinished, duration, loop]);
 
-  return (
-    <div className="ct">
-      <span className="ct__ticker">Refreshing in {timer / 1000} seconds</span>
-    </div>
-  );
+  return <div className="ct">Refreshing in {timer / 1000}s</div>;
 };
 
 export default CountdownTimer;

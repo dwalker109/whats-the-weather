@@ -1,9 +1,9 @@
 import React from "react";
 import WeatherPanel from "./components/WeatherPanel";
-// import "./App.css";
+import "./App.css";
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <WeatherPanel />
   </div>
 );

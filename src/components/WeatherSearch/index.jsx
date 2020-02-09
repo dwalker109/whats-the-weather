@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import config from "../../config";
-import debugData from "../../data/weather.json";
+import "./WeatherSearch.css";
 /**
  * Get updated weather data and pass it to our handler func
  * @param {string} location
@@ -9,7 +9,6 @@ import debugData from "../../data/weather.json";
  */
 export const getWeatherData = async ({ paramName, term }) => {
   try {
-    return debugData;
     const url = new URL(config.openweather.url);
     url.searchParams.append("appid", config.openweather.apiKey);
     url.searchParams.append(paramName, term);
@@ -57,16 +56,15 @@ const WeatherSearch = ({ handleSearchResult }) => {
           }
         }}
       >
-        <label>
-          Enter your location:
-          <input
-            type="text"
-            value={location}
-            onChange={e => setLocation(e.target.value)}
-          />
-        </label>
-        <span className="wi__error">{error}</span>
+        <label for="location">Enter your location:</label>
+        <input
+          name="location"
+          type="text"
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+        />
       </form>
+      <span className="wi__error">{error}</span>
     </div>
   );
 };

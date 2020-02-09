@@ -1,7 +1,8 @@
 import React from "react";
+import "./WeatherDetail.css";
 
 const tempUnits = [
-  ["℃", temp => temp - 273.15],
+  ["°C", temp => (temp - 273.15).toFixed(2)],
   ["K", temp => temp]
 ];
 
@@ -30,11 +31,11 @@ const TempUnitToggle = ({ onClick, activeTempUnit }) => {
   const [otherTempUnitSymbol] = tempUnits[Number(!activeTempUnit)];
 
   return (
-    <div className="wd__temp-unit-toggle">
-      <span className="wd__temp-unit-detail">
-        Showing temps in {tempUnitSymbol}
-      </span>
-      <button onClick={onClick}>Show in {otherTempUnitSymbol}</button>
+    <div className="wd__temp-unit-info">
+      <div>Showing temps in {tempUnitSymbol}</div>
+      <a className="wd__temp-unit-toggle" onClick={onClick}>
+        Show in {otherTempUnitSymbol}
+      </a>
     </div>
   );
 };

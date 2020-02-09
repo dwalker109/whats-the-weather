@@ -1,0 +1,39 @@
+.wd {
+  border: 2px dashed #782f79;
+  padding: 0 10px;
+  font-family: monospace;
+}
+
+.wd__city {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: left;
+  color: #dbb17e;
+  padding: 0;
+  margin: 0.8rem 0;
+}
+
+.wd__info {
+  list-style: none;
+  text-align: left;
+  padding: 0 0 10px;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: bolder;
+}
+
+.wd__info li {
+  padding: 4px 0;
+}
+
+.wd__temp-unit-info {
+  font-size: 0.7rem;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.wd__temp-unit-toggle {
+  text-decoration: underline;
+  color: #782f79;
+  cursor: pointer;
+}

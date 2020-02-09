@@ -4,6 +4,7 @@ import CountdownTimer from "../CountdownTimer";
 import WeatherDetail, { TempUnitToggle } from "../WeatherDetail";
 import WeatherHistory from "../WeatherHistory";
 import WeatherSearch, { getWeatherData } from "../WeatherSearch";
+import "./WeatherPanel.css";
 
 const WeatherPanel = () => {
   const [weatherData, reduceWeatherData] = useReducer(
@@ -28,42 +29,45 @@ const WeatherPanel = () => {
   const toggleActiveTempUnit = () => setActiveTempUnit(Number(!activeTempUnit));
 
   return (
-    <div className="wp">
-      <header className="wp__header">
-        <h1>Your weather</h1>
-      </header>
-      <main>
-        <section className="wp__input">
-          <WeatherSearch handleSearchResult={reduceWeatherData} />
-        </section>
-        <section className="wp__detail">
-          {weatherData.length > 0 && (
-            <WeatherDetail
-              weatherData={weatherData[activeCity]}
-              activeTempUnit={activeTempUnit}
-            />
-          )}
-        </section>
-        <section className="wp__toggle">
+    <>
+      <aside className="wp__sidebar">
+        {/* Blank to center sidebar layout*/}
+      </aside>
+      <div className="wp">
+        <header>
+          <h1>Your weather</h1>
+        </header>
+        <main>
+          <section className="wp__input">
+            <WeatherSearch handleSearchResult={reduceWeatherData} />
+          </section>
+          <section className="wp__detail">
+            {weatherData.length > 0 && (
+              <WeatherDetail
+                weatherData={weatherData[activeCity]}
+                activeTempUnit={activeTempUnit}
+              />
+            )}
+          </section>
+        </main>
+        <footer>
           <TempUnitToggle
             onClick={toggleActiveTempUnit}
             activeTempUnit={activeTempUnit}
           />
-        </section>
-        <section className="wp__timer">
           <CountdownTimer
             duration={config.countdownMs}
             onFinished={updateWeatherData}
             loop={true}
           />
-        </section>
-      </main>
-      <aside className="wp__history">
-        {weatherData.length > 1 && (
+        </footer>
+      </div>
+      <aside className="wp__sidebar">
+        {weatherData.length > 0 && (
           <WeatherHistory weatherData={weatherData} onClick={setActiveCity} />
         )}
       </aside>
-    </div>
+    </>
   );
 };
 

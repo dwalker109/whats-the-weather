@@ -1,4 +1,5 @@
 import React from "react";
+import "./WeatherHistory.css";
 
 const WeatherHistory = ({ weatherData, onClick }) => (
   <div className="wh">
