@@ -56,7 +56,7 @@ const WeatherSearch = ({ handleSearchResult }) => {
           }
         }}
       >
-        <label for="location">Enter your location:</label>
+        <label htmlFor="location">Enter your location:</label>
         <input
           name="location"
           type="text"
